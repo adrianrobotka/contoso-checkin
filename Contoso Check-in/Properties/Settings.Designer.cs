@@ -12,7 +12,7 @@ namespace ContosoCheckIn.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.0.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,18 +20,6 @@ namespace ContosoCheckIn.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://robotnet.no-ip.hu/")]
-        public string SiteUrl {
-            get {
-                return ((string)(this["SiteUrl"]));
-            }
-            set {
-                this["SiteUrl"] = value;
             }
         }
         
@@ -109,7 +97,7 @@ namespace ContosoCheckIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
         public int FPS {
             get {
                 return ((int)(this["FPS"]));
@@ -145,7 +133,7 @@ namespace ContosoCheckIn.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("90")]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
         public int BlockOnNoIdentity {
             get {
                 return ((int)(this["BlockOnNoIdentity"]));
@@ -248,6 +236,18 @@ namespace ContosoCheckIn.Properties {
             }
             set {
                 this["CanonMultiplier"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://172.16.55.10/")]
+        public string SiteUrl {
+            get {
+                return ((string)(this["SiteUrl"]));
+            }
+            set {
+                this["SiteUrl"] = value;
             }
         }
     }

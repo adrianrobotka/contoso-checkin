@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ContosoCheckIn"
              xmlns:props="clr-namespace:ContosoCheckIn.Properties"
-             Exit="Application_Exit"
-             StartupUri="MenuWindow.xaml">
+             StartupUri="LoginWindow.xaml">
     <Application.Resources>
         <props:Settings x:Key="Settings" />
         <SolidColorBrush x:Key="TextColor" Color="White"/>

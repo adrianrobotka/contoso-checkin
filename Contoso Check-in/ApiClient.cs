@@ -19,13 +19,40 @@ namespace ContosoCheckIn
 
         private static readonly string SiteUrl = Properties.Settings.Default.SiteUrl;
         private static readonly string ApiUrlPrefix = SiteUrl + "api/";
-        private static readonly string AuthTag = "?apikey=" + Properties.Settings.Default.ApiKey;
+        private static readonly string StaticAuthTag = "?apikey=" + Properties.Settings.Default.ApiKey;
+        public static string GateName = "no name";
+
+        private static string AuthTag
+        {
+            get
+            {
+                return StaticAuthTag + "&gate=" + GateName;
+            }
+        }
 
         string ApiUrl = Properties.Settings.Default.SiteUrl;
 
         private static readonly ImageEncodingParam[] jpegParams = {
             new ImageEncodingParam(ImwriteFlags.JpegQuality, 80)
         };
+
+        /// <summary>
+        /// After multiple candidates we need to log the selected candidate
+        /// </summary>
+        /// <param name="selectedParticipant"></param>
+        public static async void LogSelectedParticipant(ParticipantIdentifyResult selectedParticipant)
+        {
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+               { "candidate_id", selectedParticipant.participant.id.ToString() },
+               { "confidence", selectedParticipant.confidence.ToString() },
+
+            });
+
+            string url = ApiUrlPrefix + "selectCandidate" + AuthTag;
+            var response = await client.PostAsync(url, content);
+            // TODO I had no time to handle errors
+        }
 
         public static async Task<ParticipantIdentifyResult[]> IdentifyPersonAsync(Guid faceId)
         {
@@ -64,7 +91,25 @@ namespace ContosoCheckIn
 
             return new FaceDetectionResult(faceList.results.ToArray());
         }
-        
+
+        public static async Task<LoginResult> LoginAsync(string email, string password, string gate)
+        {
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+               { "email", email },
+               { "password", password },
+               { "gate", gate }
+            });
+
+            string url = ApiUrlPrefix + "login" + AuthTag;
+            var response = await client.PostAsync(url, content);
+            string responseString = await response.Content.ReadAsStringAsync();
+
+            LoginResult result = JsonConvert.DeserializeObject<LoginResult>(responseString);
+
+            return result;
+        }
+
     }
 
     /// <summary>
@@ -89,6 +134,22 @@ namespace ContosoCheckIn
     class ParticipantIdentifyResults
     {
         public List<ParticipantIdentifyResult> results { get; set; }
+    }
+
+    /// <summary>
+    /// Json.Net deserializator temp class
+    /// </summary>
+    class LoginResult
+    {
+        public string status { get; set; }
+
+        public bool isValid
+        {
+            get
+            {
+                return status != null && status == "ok";
+            }
+        }
     }
 
 }

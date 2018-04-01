@@ -151,6 +151,9 @@
     </Compile>
     <Compile Include="CanonFrameProvider.cs" />
     <Compile Include="WebCamFrameProvider.cs" />
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,10 @@
     <Page Include="UserControls\EnrolledUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\MenuWindow.xaml">
       <SubType>Designer</SubType>

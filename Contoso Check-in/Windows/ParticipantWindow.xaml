@@ -40,7 +40,7 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="15"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock Text="Welcome at the Contoso Festival!" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="25" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+            <TextBlock Text="Welcome to Contoso Festival!" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="25" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
             <TextBlock Text="Please look at the camera!" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="18" Margin="0,0,0,6" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
             <Grid Grid.Row="2" Grid.Column="1" x:Name="DataColumn" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <StackPanel Grid.Row="1" x:Name="StackPanel"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="20,0,20,0" />

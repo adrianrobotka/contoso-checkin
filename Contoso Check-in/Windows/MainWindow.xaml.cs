@@ -130,6 +130,19 @@ namespace ContosoCheckIn
         {
             Dispatcher.BeginInvoke((Action)(() =>
             {
+                if (e.TimedOut)
+                {
+                    MessageArea.Text = "Server timed out under face detection.";
+                    return;
+                }
+
+                if (e.Exception != null)
+                {
+                    MessageArea.Text = $"Server error in identifing:" + e.Exception.Message;
+                    ShowCandidateScreen(new ServerErrorUserControl());
+                    return;
+                }
+
                 ParticipantIdentifyResult[] candidates = e.Faces;
 
                 switch (candidates.Length)
@@ -141,7 +154,7 @@ namespace ContosoCheckIn
                         ShowCandidateScreen(new SingleParticipantUserControl(candidates[0]));
                         break;
                     default:
-                        ShowCandidateScreen(new MoreCandidatesUserControl(candidates,EventHandler)); //PLEASE TEST IT!
+                        ShowCandidateScreen(new MoreCandidatesUserControl(candidates, EventHandler));
                         break;
                 }
             }));
@@ -157,19 +170,17 @@ namespace ContosoCheckIn
 
         private void ShowCandidateScreen(UserControl control)
         {
+            CandidatesStack.Children.Clear();
+
             if (control == null)
             {
-                CandidatesStack.Children.Clear();
                 RightColumn.Background = null;
                 return;
             }
-            if (true)
-            {
-                control.MinWidth = (column1.ActualWidth) * Properties.Settings.Default.MinWidthOnUserControls;
-                CandidatesStack.Children.Clear();
-                RightColumn.Background = control.Background;
-                CandidatesStack.Children.Add(control);
-            }
+
+            control.MinWidth = (column1.ActualWidth) * Properties.Settings.Default.MinWidthOnUserControls;
+            RightColumn.Background = control.Background;
+            CandidatesStack.Children.Add(control);
         }
 
         private void StartDetection()

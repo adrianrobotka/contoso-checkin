@@ -19,6 +19,8 @@ namespace ContosoCheckIn
         public string workTitle { get; set; }
         public string birth { get; set; }
         public string email { get; set; }
+        public string groupName { get; set; }
+        public string groupDescription { get; set; }
         public List<FaceImage> faces { get; set; }
 
         public override string ToString()

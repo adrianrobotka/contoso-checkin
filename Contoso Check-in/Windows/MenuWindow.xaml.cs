@@ -134,33 +134,19 @@ namespace ContosoCheckIn.Windows
             {
                 ParticipantWindow participantWindow = new ParticipantWindow(handler);
                 int MonitorCount = System.Windows.Forms.Screen.AllScreens.Length;
-                if(MonitorCount > 1)
-                    participantWindow.ShowOnMonitor(MonitorCount-1, participantWindow);
+                if (MonitorCount > 1)
+                    participantWindow.ShowOnMonitor(MonitorCount - 1, participantWindow);
                 participantWindow.Show();
             }
         }
 
-        
+
 
         public static void CloseSecondWindow()
         {
             foreach (System.Windows.Window w in Application.Current.Windows)
             {
                 if (w.Title.Contains("Participant"))
-                {
-                    w.Close();
-                }
-            }
-        }
-
-        public static void CloseWindow(System.Windows.Window x)
-        {
-            Assembly currentAssembly = Assembly.GetExecutingAssembly();
-            //  int count = Application.Current.Windows;
-            foreach (System.Windows.Window w in Application.Current.Windows)
-            {
-                //Form f = Application.OpenForms[i];
-                if (w.GetType().Assembly == currentAssembly && w == x)
                 {
                     w.Close();
                 }
@@ -183,6 +169,11 @@ namespace ContosoCheckIn.Windows
             items.Add("Enable");
             uselocalface.ItemsSource = items;
             uselocalface.SelectedIndex = Properties.Settings.Default.LocalFaceDetection ? 1 : 0;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }

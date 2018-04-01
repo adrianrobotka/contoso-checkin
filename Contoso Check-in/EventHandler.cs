@@ -40,11 +40,10 @@ namespace ContosoCheckIn
         public event EventHandler<NewLocalDetectionEventArgs> ProcessingLocalDetectionResult;
 
         private int ChainReactionCounter = 0;
-        private bool AbleToStartChain = false;
         private int Infinity = Properties.Settings.Default.BlockInfinity;
 
         private LocalFaceDetector localFaceDetector = null;
-        private float TimerMultiplier = 1;
+        private float TimerMultiplier = 5;
 
         public EventHandler(FrameProvider frameProvider, float timermultiplier)
         {
@@ -66,9 +65,9 @@ namespace ContosoCheckIn
         private async void FrameProvider_ProcessingLiveFrameAsync(object sender, NewFrameEventArgs e)
         {
             // Run local face detection
-            if (AbleToStartChain)
+            if (ChainReactionCounter < 0)
             {
-                AbleToStartChain = false;
+                ChainReactionCounter = Infinity;
 
                 bool localDetection = Properties.Settings.Default.LocalFaceDetection;
 
@@ -84,11 +83,6 @@ namespace ContosoCheckIn
             }
 
             ChainReactionCounter--;
-            if (ChainReactionCounter < 0)
-            {
-                AbleToStartChain = true;
-                ChainReactionCounter = Infinity;
-            }
         }
 
         private void StartLocalFrameDetectionTask(VideoFrame frame)
@@ -115,7 +109,7 @@ namespace ContosoCheckIn
         {
             if (e.TimedOut || e.Exception != null)
             {
-                ChainReactionCounter = 1;
+                ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoFace * TimerMultiplier);
                 return;
             }
 
@@ -134,9 +128,9 @@ namespace ContosoCheckIn
                 NewIdentifyEventArgs result = await RunFaceIdentify(e.Frame, selectedFaceId);
                 OnIdentifyResultProvided(result);
             }
-            if(biggestFaceIndex == -1)
+            if (biggestFaceIndex == -1)
             {
-                ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoIdentity*TimerMultiplier);
+                ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoIdentity * TimerMultiplier);
             }
         }
 
@@ -144,17 +138,18 @@ namespace ContosoCheckIn
         {
             if (e.TimedOut || e.Exception != null)
             {
-                AbleToStartChain = true;
+                // server error
+                ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoIdentity * TimerMultiplier);
                 return;
             }
 
             switch (e.Faces.Count())
             {
                 case 0:
-                    ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoIdentity*TimerMultiplier);
+                    ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoIdentity * TimerMultiplier);
                     break;
                 case 1:
-                    ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnPrimaryIdentity*TimerMultiplier);
+                    ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnPrimaryIdentity * TimerMultiplier);
                     break;
                 default:
                     ChainReactionCounter = int.MaxValue;
@@ -165,7 +160,7 @@ namespace ContosoCheckIn
 
         public void resetBlock()
         {
-            ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoFace*TimerMultiplier);
+            ChainReactionCounter = (int)(Properties.Settings.Default.BlockOnNoFace * TimerMultiplier);
         }
 
         protected async Task<NewRemoteDetectionEventArgs> RunRemoteFaceDetection(VideoFrame frame)

@@ -65,6 +65,14 @@ namespace ContosoCheckIn.UserControls
                 rd5.Height = GridLength.Auto;
                 grid2.RowDefinitions.Add(rd5);
 
+                RowDefinition rd6 = new RowDefinition();
+                rd6.Height = GridLength.Auto;
+                grid2.RowDefinitions.Add(rd6);
+
+                /*RowDefinition rd7 = new RowDefinition();
+                rd7.Height = GridLength.Auto;
+                grid2.RowDefinitions.Add(rd7);*/
+
                 Grid.SetColumn(grid2, 1); grid.Children.Add(grid2);
 
                 Image image = new Image();
@@ -114,6 +122,22 @@ namespace ContosoCheckIn.UserControls
                 tb5.Text = identifyResult.participant.workTitle;
                 Grid.SetRow(tb5, 4); grid2.Children.Add(tb5);
 
+                TextBlock tb6 = new TextBlock();
+                tb6.FontSize = 18;
+                tb6.HorizontalAlignment = HorizontalAlignment.Right;
+                tb6.Margin = margin;
+                tb6.Foreground = new SolidColorBrush(Colors.White);
+                tb6.Text = (int)(identifyResult.confidence * 100) + "%";
+                Grid.SetRow(tb6, 5); grid2.Children.Add(tb6);
+
+                /* TextBlock tb7 = new TextBlock();
+                tb7.FontSize = 15;
+                tb7.HorizontalAlignment = HorizontalAlignment.Right;
+                tb7.Margin = margin;
+                tb7.Foreground = new SolidColorBrush(Colors.White);
+                tb7.Text = identifyResult.participant.groupName;
+                Grid.SetRow(tb7, 6); grid2.Children.Add(tb7);*/
+
                 results.Items.Add(grid);
             }
         }
@@ -121,6 +145,11 @@ namespace ContosoCheckIn.UserControls
         private void results_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EventHandler.resetBlock();
+
+            // Log action to the API
+            ApiClient.LogSelectedParticipant(identifyResults[results.SelectedIndex]);
+
+            // Create a single login event to show the result
             NewIdentifyEventArgs args = new NewIdentifyEventArgs();
             args.Faces = new ParticipantIdentifyResult[] { identifyResults[results.SelectedIndex] };
             EventHandler.OnIdentifyResultProvided(args);

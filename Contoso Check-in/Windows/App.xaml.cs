@@ -18,10 +18,5 @@ namespace ContosoCheckIn
                 e.Handled = true;
             });
         }
-
-        private void Application_Exit(object sender, ExitEventArgs e)
-        {
-
-        }
     }
 }

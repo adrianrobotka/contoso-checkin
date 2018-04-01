@@ -27,6 +27,7 @@ namespace ContosoCheckIn.UserControls
             WorkTitle.Text = Candidate.participant.workTitle;
             Birth.Text = Candidate.participant.birth;
             Email.Text = Candidate.participant.email;
+            Group.Text = Candidate.participant.groupName;
             ConfidencePercentage.Text = (int)(Candidate.confidence * 100) + "%";
 
             FillImages();

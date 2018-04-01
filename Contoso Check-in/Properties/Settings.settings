@@ -2,9 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ContosoCheckIn.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="SiteUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://robotnet.no-ip.hu/</Value>
-    </Setting>
     <Setting Name="MinimalThreshold" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.5</Value>
     </Setting>
@@ -24,7 +21,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="FPS" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">30</Value>
+      <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="FaceDetectionTimeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">4000</Value>
@@ -33,7 +30,7 @@
       <Value Profile="(Default)">4000</Value>
     </Setting>
     <Setting Name="BlockOnNoIdentity" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">90</Value>
+      <Value Profile="(Default)">60</Value>
     </Setting>
     <Setting Name="BlockOnPrimaryIdentity" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">90</Value>
@@ -58,6 +55,9 @@
     </Setting>
     <Setting Name="CanonMultiplier" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="SiteUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://172.16.55.10/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

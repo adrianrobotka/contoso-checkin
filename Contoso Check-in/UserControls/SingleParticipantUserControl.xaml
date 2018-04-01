@@ -11,7 +11,7 @@
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="27*" />
-                <RowDefinition Height="270" />
+                <RowDefinition Height="310" />
                 <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
             <!-- User pictures place -->
@@ -24,6 +24,7 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
                 <!-- User data -->
                 <TextBlock x:Name="Name" Foreground="White" FontSize="42" Grid.Row="0" Text="Adrián" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -31,6 +32,7 @@
                 <TextBlock x:Name="WorkTitle" Foreground="White" FontSize="22" Grid.Row="2" Text="Fejlesztő" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <TextBlock x:Name="Email" Foreground="White" FontSize="22" Grid.Row="3" Text="robotka.adrian@gmail.com" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <TextBlock x:Name="Birth" Foreground="White" FontSize="22" Grid.Row="4" Text="2000-01-01" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="Group" Foreground="White" FontSize="22" Grid.Row="5" Text="normal participant" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
             <!-- User confidence -->
             <TextBlock x:Name="ConfidencePercentage" Foreground="White" Grid.Row="2" Text="80%" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
