@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ContosoCheckIn.UserControls.ServerErrorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ContosoCheckIn.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid>
+        <Border Background="Black" Opacity="0.35"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="38" Foreground="White" Grid.Row="1" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,0,50" Text="Server error" ></TextBlock>
+            <Image x:Name="image" Grid.Row="0" Height="200" Margin="0" VerticalAlignment="Center" Source="/ContosoCheckIn;component/Resources/rederror.png"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

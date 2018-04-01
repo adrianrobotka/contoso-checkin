@@ -1,0 +1,50 @@
+﻿<Window x:Class="ContosoCheckIn.Windows.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContosoCheckIn.Windows"
+        mc:Ignorable="d"
+        Foreground="{DynamicResource TextColor}"
+        Title="Contoso Check-In" Height="300" Width="350" MinHeight="300" MinWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="12" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush x:Name="BackgroundImage" ImageSource="/ContosoCheckIn;component/Resources/background.png" />
+        </Grid.Background>
+        
+        <TextBlock Text="Contoso Check-In" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Grid.Row="0"/>
+
+        <!-- Main table -->
+        <Grid Grid.Row="1" Width="250">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Camera:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+            <ComboBox x:Name="CameraList" Loaded="CameraList_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="0"/>
+            <TextBlock Text="Participant window:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" />
+            <ComboBox x:Name="showparticipantwindow" Loaded="showparticipantwindow_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="1"/>
+            <TextBlock Text="Local face detector:" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" />
+            <ComboBox x:Name="uselocalface" Loaded="uselocalface_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Grid.Column="1" Grid.Row="2"/>
+
+        </Grid>
+        
+        <TextBlock x:Name="FeedbackMessage" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2"/>
+
+        <Button x:Name="StartButton" Click="StartButton_Click" Content="Start" Width="60" Height="25" Grid.Row="3"/>
+
+        <TextBlock Text="by: csapatnév" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="4" Margin="0,0,3,3"/>
+    </Grid>
+</Window>

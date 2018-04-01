@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="ContosoCheckIn.UserControls.NoIdentityUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ContosoCheckIn.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid>
+        <Border Background="Black" Opacity="0.35"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Text="No identity!" Foreground="White" FontSize="36" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            <Image x:Name="image" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/ContosoCheckIn;component/Resources/noidentity.png" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<Window x:Name="PWindow"
+        x:Class="ContosoCheckIn.ParticipantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContosoCheckIn"
+        Closing="WindowClosing"
+        WindowStartupLocation="Manual"
+        Foreground="{DynamicResource TextColor}"
+        mc:Ignorable="d"
+        MinWidth="800" MinHeight="500"
+        Title="Contoso Check-In - Participant Window" Height="500" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush x:Name="BackgroundImage" ImageSource="/ContosoCheckIn;component/Resources/background.png" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="column1" Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+        <!-- Left column -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8" />
+                <RowDefinition Height="96*" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="96*" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" x:Name="LiveImage" Margin="3"/>
+            <Image Grid.Row="3" x:Name="FeedbackImage" Margin="3" />
+
+        </Grid>
+        <!-- Right column -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="15"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Welcome at the Contoso Festival!" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="25" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+            <TextBlock Text="Please look at the camera!" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="Arial" FontSize="18" Margin="0,0,0,6" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+            <Grid Grid.Row="2" Grid.Column="1" x:Name="DataColumn" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <StackPanel Grid.Row="1" x:Name="StackPanel"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="20,0,20,0" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

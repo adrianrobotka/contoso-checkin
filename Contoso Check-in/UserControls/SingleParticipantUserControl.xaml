@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ContosoCheckIn.UserControls.SingleParticipantUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ContosoCheckIn.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid>
+        <Border x:Name="SmartBorder" Background="Black" Opacity="0.35"></Border>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27*" />
+                <RowDefinition Height="270" />
+                <RowDefinition Height="10*" />
+            </Grid.RowDefinitions>
+            <!-- User pictures place -->
+            <StackPanel Grid.Row="0" x:Name="UserImages" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,10,25,0" />
+            <!-- User data grid -->
+            <Grid Grid.Row="1" x:Name="UserDataGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <!-- User data -->
+                <TextBlock x:Name="Name" Foreground="White" FontSize="42" Grid.Row="0" Text="Adrián" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="Company" Foreground="White" FontSize="26" Grid.Row="1" Text="Földes Kft." VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="WorkTitle" Foreground="White" FontSize="22" Grid.Row="2" Text="Fejlesztő" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="Email" Foreground="White" FontSize="22" Grid.Row="3" Text="robotka.adrian@gmail.com" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock x:Name="Birth" Foreground="White" FontSize="22" Grid.Row="4" Text="2000-01-01" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Grid>
+            <!-- User confidence -->
+            <TextBlock x:Name="ConfidencePercentage" Foreground="White" Grid.Row="2" Text="80%" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,36 @@
+using System;
+using OpenCvSharp;
+using System.Windows.Media.Imaging;
+
+namespace ContosoCheckIn
+{
+    /// <summary> Metadata for a VideoFrame. </summary>
+    public struct VideoFrameMetadata
+    {
+        public DateTime Timestamp;
+        public int Index;
+    }
+
+    /// <summary> A video frame produced by the <see cref="FrameGrabber{AnalysisResultType}"/>.
+    ///     This class encapsulates the image, any metadata, and also allows the user to attach
+    ///     some arbitrary data to each frame as it flows through the pipeline. </summary>
+    public class VideoFrame
+    {
+        /// <summary> Constructor. </summary>
+        /// <param name="image">    The image captured by the camera. </param>
+        /// <param name="metadata"> The metadata. </param>
+        public VideoFrame(Mat image, VideoFrameMetadata metadata)
+        {
+            Image = image;
+            Metadata = metadata;
+        }
+
+        /// <summary> Gets the image for the frame. </summary>
+        /// <value> The image. </value>
+        public Mat Image { get; }
+
+        /// <summary> Gets the frame's metadata. </summary>
+        /// <value> The metadata. </value>
+        public VideoFrameMetadata Metadata { get; }
+    }
+}

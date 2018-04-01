@@ -1,0 +1,64 @@
+﻿<Window x:Class="ContosoCheckIn.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContosoCheckIn"
+        Foreground="{DynamicResource TextColor}"
+        mc:Ignorable="d"
+        Title="Settings - Contoso Check-in" MinHeight="400" Height="400" Width="500" MinWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="12.5*"></RowDefinition>
+            <RowDefinition Height="9*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush x:Name="BackgroundImage" ImageSource="/ContosoCheckIn;component/Resources/background.png" />
+        </Grid.Background>
+        <TextBlock Grid.Column="0" Grid.Row="0" Text="Setting Name" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="Setting value" TextWrapping="Wrap" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="API URL:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="Minimal Threshold " TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="Frames Per Second" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Maximum Candidates:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5" Text="Api Key:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" Text="Minimum Face Delta Percent:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" Text="Use Local Face Detector:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="8" Text="Show Participant Window:" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
+        <TextBox x:Name="TxtApiurl" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0" />
+        <TextBox x:Name="TxtMinimalthreshold" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <TextBox x:Name="TxtPersonanalysisbreak" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <TextBox x:Name="TxtMaximumcandidates" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <TextBox x:Name="TxtApikey" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <TextBox x:Name="TxtMinimumfacedeltapercent" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <Grid Grid.Row="7" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <RadioButton x:Name="UseLocalFaceDetector" Content="Yes" Foreground="{DynamicResource TextColor}" FontSize="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"></RadioButton>
+            <RadioButton x:Name="DontUseLocalFaceDetector" Content="No" Foreground="{DynamicResource TextColor}" FontSize="15" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"></RadioButton>
+        </Grid>
+        <Grid Grid.Row="8" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <RadioButton x:Name="ShowParticipantWindow" Content="Yes" Foreground="{DynamicResource TextColor}" FontSize="15" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"></RadioButton>
+            <RadioButton x:Name="DontShowParticipantWindow" Content="No" Foreground="{DynamicResource TextColor}" FontSize="15" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"></RadioButton>
+        </Grid>
+        <Button x:Name="savebutton" Content="Save" VerticalAlignment="Center" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" Width="80" Click="savebutton_Click"/>
+    </Grid>
+</Window>

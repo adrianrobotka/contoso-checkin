@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ContosoCheckIn.UserControls.ProblemUserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:ContosoCheckIn.UserControls"
+        mc:Ignorable="d" 
+        d:DesignHeight="500" d:DesignWidth="450">
+    <Grid>
+        <Border x:Name="SmartBorder" Background="Black" Opacity="0.35"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="20*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Problem!" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="42" Grid.Row="0"></TextBlock>
+            <Image x:Name="image" Height="200" Margin="0" Source="/ContosoCheckIn;component/Resources/warning.png" VerticalAlignment="Center" Grid.Row="1" />
+            <TextBlock Text="Our assistant will arrive soon!" FontFamily="Franklin Gothic" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32" Grid.Row="2"></TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
